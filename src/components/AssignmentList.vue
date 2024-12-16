@@ -1,7 +1,6 @@
 <script setup>
-import { limit } from '@/utils.js'
 defineProps({
-  assignments: Object,
+  assignments: Array,
 })
 </script>
 
@@ -13,7 +12,7 @@ defineProps({
     @click="$emit('select-assignment', assignment)"
   >
     <p>{{ assignment.name }}</p>
-    <span class="text-slate-500 text-sm"> {{ limit(assignment.description, 24) }}</span>
+    <span class="text-slate-500 text-sm"> {{ assignment.description }}</span>
     <span class="absolute text-slate-500 right-5 top-5 text-sm"> {{ assignment.dueDate }}</span>
   </div>
 </template>
