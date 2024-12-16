@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import router from '@/router'
 
 const email = ref('')
 const password = ref('')
@@ -16,6 +17,7 @@ const handleSubmit = async () => {
 
     const response = await axios.post('http://127.0.0.1:8000/api/login', payload)
     console.log('Login successful', response.data)
+    await router.push('/')
   } catch (error) {
     console.error('Error during login:', error.response?.data || error.message)
   }
